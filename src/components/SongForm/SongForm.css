@@ -1,0 +1,21 @@
+.Form {
+  padding: 20px;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 400px;
+  margin-right: 50px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputContainer > label {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.inputContainer > input {
+  padding: 5px;
+}
