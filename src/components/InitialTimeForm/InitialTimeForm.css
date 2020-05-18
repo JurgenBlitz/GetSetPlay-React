@@ -1,0 +1,10 @@
+.initialTimeForm {
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.timeInput > input {
+  padding: 5px;
+  margin-bottom: 10px;
+}

@@ -21,11 +21,15 @@ Basic difficulty:
 - Allow the SongList component to substract time with each new addition.
 - Allow the SongCards to edit their content or delete themselves from the lost.
 
-Medium difficulty: 
+Medium difficulty:
+- Set up Redux so that the app can control the time settings centrally instead of relying on constant parent-to-siblings communication.
 - Include form validation for the inputs
 
 
 ## Available Scripts
+
+### `npm install` or `npm i`
+Installs the project and its dependencies. 
 
 ### `npm start`
 
