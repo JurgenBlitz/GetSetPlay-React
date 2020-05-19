@@ -10,20 +10,23 @@ import './App.css';
 import './components/InitialTimeForm/InitialTimeForm.css'
 import './components/SongForm/SongForm.css'
 import './components/SongList/SongList.css'
+import './components/SongCard/SongCard.css'
 // --- //
 
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      timeToPlay: 0
-    }
-    this.setTimer = this.setTimer.bind(this);
+
+  state = {
+    timeToPlay: 0,
+    setList: []
   }
 
-  setTimer(timeFormData) {
+  setTimer = (timeFormData) => {
     this.setState({timeToPlay: timeFormData})
-    console.log('received',timeFormData, this.state.timeToPlay);
+    console.log('received', timeFormData, this.state);
+  }
+
+  addSong = (data) => {
+    this.setState({setList: this.state.setList.push(data)})
   }
 
   render() {
@@ -32,7 +35,7 @@ class App extends Component {
       <Appheader />
       <InitialTimeForm onTimeSelection={this.setTimer} />
         <div className="Main">
-        <SongForm />
+        <SongForm onSave={this.addSong} />
         <SongList />
         </div>
       </div>

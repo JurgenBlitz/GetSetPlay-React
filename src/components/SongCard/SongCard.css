@@ -1,0 +1,26 @@
+.card {
+  display: grid;
+  padding: 10px;
+  border: 1px solid white;
+  background-color: black;
+  border-radius: 3px;
+}
+
+.card > label {
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+.actions {
+  text-align: right;
+  margin-top: 10px;
+  float: right;
+}
+
+.actions > button {
+  background: green;
+  color: white;
+  margin: 0 10px;
+  width: 40px;
+  border-radius: 25px;
+}
