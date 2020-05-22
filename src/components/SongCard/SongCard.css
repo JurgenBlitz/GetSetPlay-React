@@ -1,5 +1,6 @@
 .card {
   display: grid;
+  margin: 7px 0;
   padding: 10px;
   border: 1px solid white;
   background-color: black;
@@ -9,18 +10,11 @@
 .card > label {
   font-weight: 600;
   font-size: 1.2em;
+  margin-bottom: 5px;
 }
 
 .actions {
   text-align: right;
   margin-top: 10px;
   float: right;
-}
-
-.actions > button {
-  background: green;
-  color: white;
-  margin: 0 10px;
-  width: 40px;
-  border-radius: 25px;
 }

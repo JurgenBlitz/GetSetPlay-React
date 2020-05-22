@@ -26,3 +26,11 @@
   background-color: cadetblue;
   padding: 5px 10px;
 }
+
+.secondaryButton {
+  background: green;
+  color: white;
+  margin: 0 10px;
+  width: 40px;
+  border-radius: 25px;
+}

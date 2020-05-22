@@ -1,8 +1,10 @@
 import React from 'react';
 
-const BasicButton = ({ label, action }) => {
+// This button will handle basic actions like Accept, Save, etc.
+
+const BasicButton = ({ className, label, type, action }) => {
   return(
-    <button className="basicButton" onClick={action}>
+    <button className={className} type={type} onClick={action}>
       {label}
     </button>
   )

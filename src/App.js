@@ -7,36 +7,33 @@ import SongForm from './components/SongForm/SongForm';
 import SongList from './components/SongList/SongList';
 // Styles and vars
 import './App.css';
-import './components/InitialTimeForm/InitialTimeForm.css'
-import './components/SongForm/SongForm.css'
-import './components/SongList/SongList.css'
-import './components/SongCard/SongCard.css'
 // --- //
 
 class App extends Component {
 
-  state = {
-    timeToPlay: 0,
-    setList: []
-  }
+  state = { timeToPlay: null, setList: [] }
 
   setTimer = (timeFormData) => {
-    this.setState({timeToPlay: timeFormData})
-    console.log('received', timeFormData, this.state);
+    this.setState({timeToPlay: timeFormData});
   }
 
   addSong = (data) => {
-    this.setState({setList: this.state.setList.push(data)})
+    this.setState({setList: [...this.state.setList, data]})
+  }
+
+  deleteSong = (data) => {
+    const modifiedSetlist = this.state.setList.filter((song) => song.name !== data.name);
+    this.setState({setList: modifiedSetlist})
   }
 
   render() {
     return (
       <div className="App">
       <Appheader />
-      <InitialTimeForm onTimeSelection={this.setTimer} />
+      {!this.state.timeToPlay && <InitialTimeForm onTimeSelection={this.setTimer} />}
         <div className="Main">
         <SongForm onSave={this.addSong} />
-        <SongList />
+        <SongList setList={this.state.setList} handleDeletion={this.deleteSong}/>
         </div>
       </div>
     );

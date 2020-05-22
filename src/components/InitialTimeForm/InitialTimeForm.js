@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import BasicButton from '../shared-components/BasicButton/BasicButton';
+import './InitialTimeForm.css';
 
 //TODO: Assess the props required for this file
 class InitialTimeForm extends Component {
@@ -26,7 +27,7 @@ class InitialTimeForm extends Component {
           placeholder="mm:ss"
           onChange={this.handleChange}/>
           </div>
-          <BasicButton label="Accept" action={this.handleSubmit}/>
+          <BasicButton className="basicButton" label="Accept" action={this.handleSubmit}/>
         </form> 
       </div>
     )

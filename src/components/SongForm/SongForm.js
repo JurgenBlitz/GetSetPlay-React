@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import BasicButton from '../shared-components/BasicButton/BasicButton';
+import './SongForm.css';
 
 class SongForm extends Component {
 
@@ -13,8 +14,8 @@ class SongForm extends Component {
     const name = this.songName.value
     const time = this.songTime.value
     
-    event.preventDefault();
-    this.props.onSave([name, time])
+    event.stopPropagation();
+    this.props.onSave({name: name, time: time})
   }
 
   render() {
@@ -27,8 +28,6 @@ class SongForm extends Component {
               id="songname"
               name="songname"
               placeholder="Ex: 'I´m a sheep'" 
-              value={this.state.songName}
-              onChange={ event => this.setState({songName: event.target.value})}
               ref={inputElement => this.songName = inputElement}/>
           </p>
   
@@ -38,11 +37,9 @@ class SongForm extends Component {
               id="songtime"
               name="songtime"
               placeholder="mm:ss"
-              value={this.state.songTime}
-              onChange={ event => this.setState({songTime: event.target.value})}
               ref={inputElement => this.songTime = inputElement}/>
           </p>
-          <BasicButton label="Save" action={this.handleSubmit}/>
+          <BasicButton className="basicButton" type="reset" label="Save" action={this.handleSubmit}/>
         </form>
       </div>
     )

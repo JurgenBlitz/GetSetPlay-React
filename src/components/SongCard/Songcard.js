@@ -1,28 +1,27 @@
-import React, {Component} from 'react';
-// import BasicButton from '../shared-components/BasicButton/BasicButton';
+import React from 'react';
+import BasicButton from '../shared-components/BasicButton/BasicButton';
+import './SongCard.css';
 
-class SongCard extends Component {
+const SongCard = ({ name, time, onDelete }) => {
 
-  editSongInfo() {
+  const editSongInfo = () => {
     // Method to edit song
   }
 
-  deleteSong() {
-  // Method to delete song from parent array in SongList.js
+  const deleteSong = () => {
+    onDelete({ name, time })
   }
 
-  render() {
-    return(
-      <div className="card">
-      <label>I'm a sheep</label>
-      <span>04:20</span>
+  return (
+    <div className="card">
+      <label>{name}</label>
+      <span>{time}</span>
       <div className="actions">
-      <button>$</button>
-      <button>+</button>
+        <BasicButton className="secondaryButton" type="button" label="edit" action={editSongInfo} />
+        <BasicButton className="secondaryButton" type="button" label="del." action={deleteSong} />
       </div>
-      </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default SongCard;
