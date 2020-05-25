@@ -2,18 +2,25 @@ import React, {Component} from 'react';
 import BasicButton from '../shared-components/BasicButton/BasicButton';
 import './InitialTimeForm.css';
 
-//TODO: Assess the props required for this file
 class InitialTimeForm extends Component {
 
-  state = {selectedTime: 0};
+  state = {selectedTime: '', formError: ''};
 
   handleChange = (event) => {
     this.setState({selectedTime: event.target.value});
   }
 
   handleSubmit = (event) => {
+    const minsAndSecsPattern = new RegExp(/^[0-9]{2,3}$/);
+    const formValid = minsAndSecsPattern.test(this.state.selectedTime);
     event.preventDefault();
-    this.props.onTimeSelection(this.state.selectedTime)
+    this.setState({formError: !formValid ? 'Set the duration in minutes (ex: 30)' : ''})
+    
+    if (formValid) {
+      this.props.onTimeSelection(this.state.selectedTime)
+    } else {
+      this.setState({selectedTime: ''})
+    }
   }
 
   render() {
@@ -27,7 +34,10 @@ class InitialTimeForm extends Component {
           placeholder="mm:ss"
           onChange={this.handleChange}/>
           </div>
-          <BasicButton className="basicButton" label="Accept" action={this.handleSubmit}/>
+          <div>
+            <span className='error'>{this.state.formError}</span>
+          </div>
+          <BasicButton className="basicButton" type="reset" label="Accept" action={this.handleSubmit}/>
         </form> 
       </div>
     )

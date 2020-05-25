@@ -2,7 +2,7 @@ import React from 'react';
 import SongCard from '../SongCard/Songcard';
 import './SongList.css';
 
-const SongList = ({ setList, handleDeletion }) => {
+const SongList = ({ setList, timeToPlay, handleDeletion }) => {
 
   const generateSongCards = () => setList.map((song) =>
     <SongCard key={`${song.name},${song.time}`} name={song.name} time={song.time} onDelete={handleDeletion} />
@@ -19,7 +19,9 @@ const SongList = ({ setList, handleDeletion }) => {
           <p>Use the form on the left to add songs to your setlist</p>
         </>
       )}
+      {timeToPlay && <span>Time set: {timeToPlay} mins</span>}
       </div>
+     
     </div>
   )
 }

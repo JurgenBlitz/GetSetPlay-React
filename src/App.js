@@ -33,7 +33,7 @@ class App extends Component {
       {!this.state.timeToPlay && <InitialTimeForm onTimeSelection={this.setTimer} />}
         <div className="Main">
         <SongForm onSave={this.addSong} />
-        <SongList setList={this.state.setList} handleDeletion={this.deleteSong}/>
+        <SongList setList={this.state.setList} timeToPlay={this.state.timeToPlay} handleDeletion={this.deleteSong}/>
         </div>
       </div>
     );
