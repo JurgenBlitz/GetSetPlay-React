@@ -14,7 +14,7 @@ const SongList = ({ setList, starterTimeString, handleDeletion }) => {
     onDelete={handleDeletion} />
   )
 
-  // TODO: Set time with proper numbers- this is adding strings
+  // TODO: Component could now receive time string- replace this method
   useEffect(() => {
     const timeOfSongsInList =  setList.reduce((accum,item) => accum + item.time, 0)
     checkTimeLeft(timeOfSongsInList)
