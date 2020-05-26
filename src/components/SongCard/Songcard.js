@@ -2,14 +2,14 @@ import React from 'react';
 import BasicButton from '../shared-components/BasicButton/BasicButton';
 import './SongCard.css';
 
-const SongCard = ({ name, time, onDelete }) => {
+const SongCard = ({ name, time, timeInMls, onDelete }) => {
 
   const editSongInfo = () => {
     // Method to edit song
   }
 
   const deleteSong = () => {
-    onDelete({ name, time })
+    onDelete({ name, time, timeInMls })
   }
 
   return (

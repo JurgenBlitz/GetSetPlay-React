@@ -11,11 +11,14 @@ const validateForm = errors => {
 // const songTitlePattern = new RegExp(/^[-!#$%&'*,.\/ \/ç:+0-9=?ñA-Z^_a-z]{2,40}$/);
 const minsAndSecsPattern = new RegExp(/^[0-5]\d:[0-5]\d$/);
 
+const millisecs = (mins, secs) => ((mins * 60) + secs) * 1000;
+
 class SongForm extends Component {
 
   state = {
     songName: '',
     songTime: '',
+    timeInMls: 0,
     errors: {
       name: '',
       time: ''
@@ -47,12 +50,18 @@ class SongForm extends Component {
   } 
 
    handleSubmit = (event) => {
-    const name = this.songName.value
-    const time = this.songTime.value
+    const songName = this.songName.value
+    const songTime = this.songTime.value
     event.stopPropagation();
 
     if (validateForm(this.state.errors)) {
-      this.props.onSave({name: name, time: time})
+      this.props.onSave({
+        songName: songName,
+        songTime: songTime,
+        timeInMls: millisecs(
+          Number(songTime.split(':')[0]),
+          Number(songTime.split(':')[1]))
+      })
     }
   }
 
