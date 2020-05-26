@@ -8,7 +8,7 @@ const validateForm = errors => {
   return valid;
 };
 
-const songTitlePattern = new RegExp(/^[-!#$%&'*,.\/ \/ç:+0-9=?ñA-Z^_a-z]{2,40}$/);
+// const songTitlePattern = new RegExp(/^[-!#$%&'*,.\/ \/ç:+0-9=?ñA-Z^_a-z]{2,40}$/);
 const minsAndSecsPattern = new RegExp(/^[0-5]\d:[0-5]\d$/);
 
 class SongForm extends Component {

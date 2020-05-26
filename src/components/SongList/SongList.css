@@ -10,3 +10,7 @@
   font-size: 1.6em;
   font-weight: 600;
 }
+
+songlist > span {
+  padding: 5px;
+}
