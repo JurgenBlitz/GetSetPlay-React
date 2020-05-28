@@ -14,11 +14,14 @@ const millisecs = (mins, secs) => ((mins * 60) + secs) * 1000;
 class App extends Component {
 
   state = {
+    // TODO: Rethink variable names, because these... ugh.
     starterTimeString: '',
     starterTimeInMls: 0,
     timeAvailable: 0,
     timeAvailableString:'',
-    setList: [] }
+    setList: [],
+    almostOutOfTime: false
+  }
 
   setTimer = (timeFormData) => {
     this.setState({
@@ -30,10 +33,14 @@ class App extends Component {
 
 
   addSong = (data) => {
+    const timeAfterAddition = this.state.timeAvailable - data.timeInMls;
+    if (timeAfterAddition > 0) {
       this.setState({
-      setList: [...this.state.setList, data],
-      timeAvailable: this.state.timeAvailable - data.timeInMls
-    }, this.remainingTimeToString(this.state.timeAvailable - data.timeInMls))
+        setList: [...this.state.setList, data],
+        timeAvailable: timeAfterAddition,
+        almostOutOfTime: timeAfterAddition < 120000 ? true : false,
+      }, this.remainingTimeToString(timeAfterAddition))
+    }
   }
 
   deleteSong = (data) => {
@@ -60,7 +67,11 @@ class App extends Component {
       {!this.state.starterTimeString && <InitialTimeForm onTimeSelection={this.setTimer} />}
         <div className="Main">
         <SongForm onSave={this.addSong} />
-        <SongList setList={this.state.setList} starterTimeString={this.state.starterTimeString} handleDeletion={this.deleteSong}/>
+        <SongList
+          setList={this.state.setList}
+          starterTimeString={this.state.starterTimeString}
+          timeAvailableString={this.state.timeAvailableString}
+          handleDeletion={this.deleteSong}/>
         </div>
       </div>
     );

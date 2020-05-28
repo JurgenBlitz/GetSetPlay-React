@@ -9,7 +9,7 @@ const validateForm = errors => {
 };
 
 // const songTitlePattern = new RegExp(/^[-!#$%&'*,.\/ \/ç:+0-9=?ñA-Z^_a-z]{2,40}$/);
-const minsAndSecsPattern = new RegExp(/^[0-5]\d:[0-5]\d$/);
+const minsAndSecsPattern = new RegExp(/^[0-5]?\d:[0-5]\d$/);
 
 const millisecs = (mins, secs) => ((mins * 60) + secs) * 1000;
 
@@ -57,7 +57,7 @@ class SongForm extends Component {
     if (validateForm(this.state.errors)) {
       this.props.onSave({
         songName: songName,
-        songTime: songTime,
+        songTime: songTime.length >= 5 ? songTime.length : '0'+ songTime, // saves ex. '1:40' as '01:40'
         timeInMls: millisecs(
           Number(songTime.split(':')[0]),
           Number(songTime.split(':')[1]))
