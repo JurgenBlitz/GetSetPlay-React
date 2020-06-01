@@ -15,7 +15,25 @@ songlist > span {
   padding: 5px;
 }
 
+.songList_title {
+  margin-bottom: 15px;
+}
+
+.songList_title > button {
+  float: right;
+}
+
+.songList_songs {
+  height: 80%;
+  position: relative;
+}
+
 .timers {
   display: flex;
   flex-direction: column;
+}
+
+.songList_actions {
+  position:absolute;
+  bottom:0;
 }

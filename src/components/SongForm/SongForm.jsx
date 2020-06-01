@@ -90,7 +90,6 @@ class SongForm extends Component {
               ref={inputElement => this.songTime = inputElement}/>
             <span className='error'>{this.state.errors.time}</span>
           </p>
-
           <BasicButton className="basicButton" type="reset" label="Save" action={this.handleSubmit}/>
         </form>
       </div>

@@ -51,6 +51,10 @@ class App extends Component {
     }, this.remainingTimeToString(this.state.timeAvailable + data.timeInMls))
   }
 
+  deleteSetlist = () => {
+    this.setState({setList: []})
+  }
+
   remainingTimeToString = (duration) => {
     const seconds = Math.floor((duration / 1000) % 60);
     const minutes = Math.floor((duration / (1000 * 60)) % 60);
@@ -71,7 +75,8 @@ class App extends Component {
           setList={this.state.setList}
           starterTimeString={this.state.starterTimeString}
           timeAvailableString={this.state.timeAvailableString}
-          handleDeletion={this.deleteSong}/>
+          handleDeletion={this.deleteSong}
+          onDeleteSetlist={this.deleteSetlist}/>
         </div>
       </div>
     );

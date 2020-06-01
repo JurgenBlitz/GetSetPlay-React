@@ -1,8 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import SongCard from '../SongCard/Songcard';
+import BasicButton from '../shared-components/BasicButton/BasicButton';
 import './SongList.css';
 
-const SongList = ({ setList, starterTimeString, timeAvailableString, handleDeletion }) => {
+const SongList = ({
+  setList,
+  starterTimeString,
+  timeAvailableString,
+  handleDeletion,
+  onDeleteSetlist
+  }) => {
 
   const [timeAlmostOut, triggerWarning] = useState(false)
 
@@ -16,7 +23,8 @@ const SongList = ({ setList, starterTimeString, timeAvailableString, handleDelet
     />
   )
 
-
+  const editSetName = () => onDeleteSetlist()
+  
   useEffect(() => {
     if (timeAvailableString && Number(timeAvailableString.split(':')[0] < 2)) {
       triggerWarning(true)
@@ -25,8 +33,11 @@ const SongList = ({ setList, starterTimeString, timeAvailableString, handleDelet
 
   return (
     <div className="songList">
-      <label>My Setlist</label>
-      <div>
+      <div className="songList_title">
+        <label>My Setlist</label>
+        <BasicButton className="basicButton" type="button" label="Edit" action={editSetName}/>
+      </div>
+      <div className="songList_songs">
       {setList.length > 0 ? generateSongCards() : (
         // Below is an implementation of a React Fragment without declaring it explicitally
         <>
@@ -39,6 +50,9 @@ const SongList = ({ setList, starterTimeString, timeAvailableString, handleDelet
         {setList.length > 0 && <span>Time remaining: {timeAvailableString} mins</span>}
         {timeAlmostOut && <span className="timewarning">You have less than 2 minutes left!</span>}
       </div>
+        {setList.length > 0 && <div className="songList_actions">
+          <BasicButton className="basicButton" type="button" label="Clear set" action={editSetName}/>
+        </div>}
       </div>
     </div>
   )
