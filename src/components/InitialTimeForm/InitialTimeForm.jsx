@@ -35,7 +35,7 @@ class InitialTimeForm extends Component {
           onChange={this.handleChange}/>
           </div>
           <div>
-            <span className='error'>{this.state.formError}</span>
+            <span className='initialTimeForm_error'>{this.state.formError}</span>
           </div>
           <BasicButton className="basicButton" type="reset" label="Accept" action={this.handleSubmit}/>
         </form> 

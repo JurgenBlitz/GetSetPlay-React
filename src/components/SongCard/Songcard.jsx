@@ -16,7 +16,7 @@ const SongCard = ({ name, time, timeInMls, onDelete }) => {
     <div className="card">
       <label>{name}</label>
       <span>{time}</span>
-      <div className="actions">
+      <div className="card_actions">
         <BasicButton className="secondaryButton" type="button" label="edit" action={editSongInfo} />
         <BasicButton className="secondaryButton" type="button" label="del." action={deleteSong} />
       </div>

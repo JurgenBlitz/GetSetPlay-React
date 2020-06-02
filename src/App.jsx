@@ -69,7 +69,7 @@ class App extends Component {
       <div className="App">
       <Appheader />
       {!this.state.starterTimeString && <InitialTimeForm onTimeSelection={this.setTimer} />}
-        <div className="Main">
+        <div className="App_mainWorkSpace">
         <SongForm onSave={this.addSong} />
         <SongList
           setList={this.state.setList}

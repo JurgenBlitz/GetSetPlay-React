@@ -1,10 +1,10 @@
 .initialTimeForm {
-  padding: 20px;
-  width: 100%;
+  padding: 20px 0;
+  width: calc(100vw - 20px);
   text-align: center;
 }
 
-.error{
+.initialTimeForm_error{
   margin-bottom: 5px;
 }
 

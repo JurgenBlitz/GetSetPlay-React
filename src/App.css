@@ -7,30 +7,9 @@
   color: white;
 }
 
-.Main {
+.App_mainWorkSpace {
   justify-content: space-around;
   display: flex;
   width: 100%;
-  padding: 20px 50px;
-}
-
-.appHeader {
-  background-color: cadetblue;
-  text-align: center;
-}
-
-.basicButton {
-  border: 1px solid white;
-  border-radius: 3px;
-  color: white;
-  background-color: cadetblue;
-  padding: 5px 10px;
-}
-
-.secondaryButton {
-  background: green;
-  color: white;
-  margin: 0 10px;
-  width: 40px;
-  border-radius: 25px;
+  padding: 20px 0;
 }

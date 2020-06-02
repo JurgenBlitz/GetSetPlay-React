@@ -9,21 +9,8 @@ The basic flow of the app is the following:
 - On submit, the song is added to the setlist and its duration is substracted from the total time.
 - The list will show the amount of time left for more songs after each new entry.
 
-- (wins) The app will warn the user when there is little time left (3-5 mins) and if a new entry has made the list exceed the initial allocated time.
-- (wins pt. 2: Electric Boogaloo) the app would let the user export the finished setlist into a PDF.
-- (wins pt. 3: Return of the TODOs) the app could also warn the user if there is still plenty of time left before the PDF export.
-
-## TODO list 
-(Last updated May 17th)
-
-Basic difficulty:
-- Enable children to read the time set by the parent component App.js.
-- Allow the SongList component to substract time with each new addition.
-- Allow the SongCards to edit their content or delete themselves from the lost.
-
-Medium difficulty:
-- Set up Redux so that the app can control the time settings centrally instead of relying on constant parent-to-siblings communication.
-- Include form validation for the inputs
+## State of the app and TODO list
+This repo includes a Kanban-style card system under the tab 'Projects' (if you are viewing this README on my GitHub profile, this is four tabs to the right of your current view, underneath the Watch/Star/Fork icons)
 
 
 ## Available Scripts

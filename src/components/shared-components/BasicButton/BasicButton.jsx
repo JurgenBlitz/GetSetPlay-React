@@ -1,4 +1,5 @@
 import React from 'react';
+import './BasicButton.css';
 
 // This button will handle basic actions like Accept, Save, etc.
 
