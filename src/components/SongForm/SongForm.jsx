@@ -57,7 +57,7 @@ class SongForm extends Component {
     if (validateForm(this.state.errors)) {
       this.props.onSave({
         songName: songName,
-        songTime: songTime.length >= 5 ? songTime.length : '0'+ songTime, // saves ex. '1:40' as '01:40'
+        songTime: songTime.length >= 5 ? songTime : '0'+ songTime, // saves ex. '1:40' as '01:40'
         timeInMls: millisecs(
           Number(songTime.split(':')[0]),
           Number(songTime.split(':')[1]))

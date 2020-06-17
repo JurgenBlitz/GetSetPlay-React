@@ -1,0 +1,27 @@
+{
+  "forms": {
+    "initialTimeForm": {
+      "choose": "Choose the total time for your setlist"
+    },
+    "songForm": {
+      "name": "Song name",
+      "time": "Song length"
+    }
+  },
+  "buttons": {
+    "accept": "Accept",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "clear_all": "Clear set"
+  },
+  "placeholder": {
+    "songName": "Ex: 'I´m a sheep'",
+    "songTime": "mm:ss"
+  },
+  "errors": {
+    "setTime_error": "Set the duration in minutes (ex: 30)",
+    "songName_maxLength": "Try to choose a shortened name for the song",
+    "songTime_format": "Set a correct duration (ex: 01:30)"
+  }
+}

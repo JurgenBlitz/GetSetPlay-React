@@ -26,7 +26,7 @@ class InitialTimeForm extends Component {
   render() {
     return(
       <div className="initialTimeForm">
-        <h3>Please choose the total time for your setlist</h3>
+        <h3>Choose the total time for your setlist</h3>
         <form>
           <div className="timeInput">
           <input id="initialTime"

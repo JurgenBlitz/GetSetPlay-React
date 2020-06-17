@@ -1,0 +1,27 @@
+{
+  "forms": {
+    "initialTimeForm": {
+      "choose": "Elige la duración total de tu set"
+    },
+    "songForm": {
+      "name": "Nombre de la canción",
+      "time": "Duraciçon"
+    }
+  },
+  "buttons": {
+    "accept": "Aceptar",
+    "save": "Guardar",
+    "edit": "Editar",
+    "delete": "Borrar",
+    "clear_all": "Vaciar set"
+  },
+  "placeholder": {
+    "songName": "Ej: 'La montaña'",
+    "songTime": "mm:ss"
+  },
+  "errors": {
+    "setTime_error": "Escribe la duración en minutos (ej: 30)",
+    "songName_maxLength": "Intenta elegir un nombre más corto para la canción",
+    "songTime_format": "Escribe el tiempo en formato mm:ss (ex: 01:30)"
+  }
+}

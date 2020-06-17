@@ -2,3 +2,23 @@
   background-color: cadetblue;
   text-align: center;
 }
+
+.appHeader_content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.appHeader_translate {
+  text-align: center;
+  margin: auto 15px;
+}
+
+.appHeader_translate > button {
+  margin: 0 5px;
+}
+
+.appHeader_hidden {
+  text-align: center;
+  margin: auto 15px;
+  opacity: 0;
+}
