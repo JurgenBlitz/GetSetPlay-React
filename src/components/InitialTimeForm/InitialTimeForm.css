@@ -1,7 +1,18 @@
 .initialTimeForm {
   padding: 20px 0;
-  width: calc(100vw - 20px);
-  text-align: center;
+  width: 500px;
+  text-align: left;
+}
+.initialTimeForm_tips > h4 {
+  margin-bottom: 0;
+}
+
+.initialTimeForm_triggers {
+  margin-top: 10px;
+}
+
+.initialTimeForm_triggers > button:first-child {
+  margin-right: 15px;
 }
 
 .initialTimeForm_error{

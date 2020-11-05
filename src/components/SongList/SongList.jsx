@@ -4,6 +4,9 @@ import SongCard from '../SongCard/Songcard';
 import BasicButton from '../shared-components/BasicButton/BasicButton';
 // Helpers
 import { TimeToString} from '../../utils/TimeToString';
+// Dependencies
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 // Styles
 import './SongList.css';
 
@@ -41,6 +44,7 @@ const SongList = ({
     if (starterTimeInMls) {
       const timeLeft = starterTimeInMls - accumulatedTime;
       const almostOut = timeLeft <= 120000;  // 2 mins, in mls
+      // Transforms into positive integer if timeLeft is negative to avoid format errors
       formatTimeLeft(TimeToString(timeLeft))
       triggerWarning(almostOut)
     }
@@ -48,6 +52,11 @@ const SongList = ({
 
   // Callback to parent component App.js to delete entire list
   const deleteSetlist = () => onDeleteSetlist()
+
+  const printSetlist = () => {
+    // Print the result tp PDF,
+    // Or redirect to a separate view to allow for edits?
+  }
 
   // Activates/deactivates input to edit
   const triggerNameEdition = () => {
@@ -92,11 +101,13 @@ const SongList = ({
         )}
         <div className="timers">
           {timeUsed > 0 && <span>Time used: {timeUsedToString} mins</span>}
-          {starterTimeInMls && <span>Time left: {timeLeftToString} mins</span>}
-          {timeAlmostOut && <span>You have less than 2 mins left!</span>}
+          {starterTimeInMls > 0 && <span>Time left: {timeLeftToString} mins</span>}
+          {(timeAlmostOut && timeUsed < starterTimeInMls) && <span>You have less than 2 mins left!</span>}
+          {(timeAlmostOut && timeUsed >= starterTimeInMls) && <span>You are out of time</span>}
         </div>
         {setList.length > 0 && <div className="songList_actions">
           <BasicButton className="basicButton" type="button" label="Clear set" action={deleteSetlist} />
+          <BasicButton className="basicButton" type="button" label="Print set" action={printSetlist} />
         </div>}
       </div>
     </div>
